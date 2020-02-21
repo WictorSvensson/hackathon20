@@ -98,4 +98,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GPSActivity.class);
         startActivity(intent);
     }
+
+    public void swap2(View v) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
 }
