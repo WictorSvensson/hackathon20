@@ -103,11 +103,22 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     }
 
-    public void postLoc(View v) throws JSONException {
+
+    public void checkIn(View v) throws JSONException {
+        postLoc("CheckIn");
+    }
+
+    public void larm(View v) throws JSONException {
+        postLoc("Critical");
+    }
+
+
+    public void postLoc(String level) throws JSONException {
         OkHttpClient client = new OkHttpClient();
 
         jo.put("longitude", longitude);
         jo.put("latitude", latitude);
+        jo.put("critical level", level);
 
         String jsonString = jo.toString();
 
@@ -143,7 +154,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     public void getGoogle(View v) {
         OkHttpClient client = new OkHttpClient();
-        String url = "http://10.40.206.98:8080";
+        String url = "http://0.0.0.0:8000";
+        //String url = "http://10.40.206.98:8080";
 
         Request request = new Request.Builder()
                 .url(url)
