@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
 
     public void postLoc(String level) throws JSONException {
+        Toast.makeText(getApplicationContext(),level + " lat: " + latitude + " long: " + longitude,Toast.LENGTH_SHORT).show();
         OkHttpClient client = new OkHttpClient();
 
         jo.put("longitude", longitude);
