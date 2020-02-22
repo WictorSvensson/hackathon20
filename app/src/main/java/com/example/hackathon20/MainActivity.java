@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 .add("message", "Your message")
                 .build();
         Request request = new Request.Builder()
-                .url("https://postman-echo.com/post")
+                .url("http://10.40.206.98:8080")
                 .post(formBody)
                 .build();
 
@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    final String resp = response.body().string();
+                    //final String resp = response.body().string();
 
                     MainActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            text.setText(resp);
+                            text.setText("NICE");
                         }
                     });
                 }
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getGoogle(View v) {
         OkHttpClient client = new OkHttpClient();
-        String url = "https://google.se";
+        String url = "http://10.40.206.98:8080";
 
         Request request = new Request.Builder()
                 .url(url)
