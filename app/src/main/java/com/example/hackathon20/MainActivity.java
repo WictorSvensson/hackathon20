@@ -1,9 +1,12 @@
 package com.example.hackathon20;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -80,6 +83,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //text = findViewById(R.id.textView);
+
+        ActionBar ab = getSupportActionBar();
+        //ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowCustomEnabled(true);
+        LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View abView = li.inflate(R.layout.start_page_bar, null);
+        ab.setCustomView(abView);
 
         //locationTv = findViewById(R.id.location);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
