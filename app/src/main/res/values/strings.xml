@@ -2,4 +2,6 @@
     <string name="app_name">hackathon20</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="check">Checka in</string>
+    <string name="larm">Larma</string>
 </resources>

@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = findViewById(R.id.textView);
+        //text = findViewById(R.id.textView);
 
         locationTv = findViewById(R.id.location);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
