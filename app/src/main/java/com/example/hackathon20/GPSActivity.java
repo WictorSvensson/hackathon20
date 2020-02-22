@@ -47,8 +47,6 @@ public class GPSActivity extends AppCompatActivity implements GoogleApiClient.Co
     private final static int ALL_PERMISSIONS_RESULT = 1011;
 
 
-    //private FusedLocationProviderClient fusedLocationClient;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,11 +131,6 @@ public class GPSActivity extends AppCompatActivity implements GoogleApiClient.Co
             return false;
         }
         return true;
-    }
-
-    public void gps(View v) {
-
-        Toast.makeText(getApplicationContext(),"Hello Javatpoint", Toast.LENGTH_SHORT).show();
     }
 
     @Override
