@@ -34,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
         <Button
             android:id="@+id/buttonLarm"
             android:layout_width="0dp"
@@ -51,6 +50,7 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout3"
