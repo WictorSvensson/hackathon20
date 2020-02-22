@@ -39,7 +39,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hackathon20.MainActivity" />
         </activity>
-        <activity android:name=".GPSActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

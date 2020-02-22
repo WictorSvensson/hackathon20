@@ -39,6 +39,9 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -65,6 +68,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private ArrayList<String> permissionsRejected = new ArrayList<>();
     private ArrayList<String> permissions = new ArrayList<>();
     private final static int ALL_PERMISSIONS_RESULT = 1011;
+    private double latitude = 0.0;
+    private double longitude = 0.0;
+    private JSONObject jo = new JSONObject();
+
 
     private TextView text;
 
@@ -96,11 +103,16 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     }
 
-    public void postLoc(View v) {
+    public void postLoc(View v) throws JSONException {
         OkHttpClient client = new OkHttpClient();
 
+        jo.put("longitude", longitude);
+        jo.put("latitude", latitude);
+
+        String jsonString = jo.toString();
+
         RequestBody formBody = new FormBody.Builder()
-                .add("message", "Your message")
+                .add("message", jsonString)
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.40.206.98:8080")
@@ -159,10 +171,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         });
     }
 
-    public void swap(View v) {
+    /*public void swap(View v) {
         Intent intent = new Intent(this, GPSActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     public void swap2(View v) {
         Intent intent = new Intent(this, MapsActivity.class);
@@ -240,6 +252,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         if(location != null ){
             locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
 
         }
         startLocationUpdates();
@@ -273,6 +287,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     public void onLocationChanged(Location location) {
         if(location != null ){
             locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
 
         }
     }
