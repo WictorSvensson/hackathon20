@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         setContentView(R.layout.activity_main);
         //text = findViewById(R.id.textView);
 
-        locationTv = findViewById(R.id.location);
+        //locationTv = findViewById(R.id.location);
         permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
         permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
 
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         startActivity(intent);
     }*/
 
-    public void swap2(View v) {
+    public void swapToMaps(View v) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
 
         if(location != null ){
-            locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
+//            locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
             latitude = location.getLatitude();
             longitude = location.getLongitude();
 
@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onLocationChanged(Location location) {
         if(location != null ){
-            locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
+//            locationTv.setText("Latitude : " + location.getLatitude() + "\n longitude : " + location.getLongitude());
             latitude = location.getLatitude();
             longitude = location.getLongitude();
 
