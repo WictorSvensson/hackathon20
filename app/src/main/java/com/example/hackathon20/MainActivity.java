@@ -190,6 +190,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     public void swapToMaps(View v) {
         Intent intent = new Intent(this, MapsActivity.class);
+        Bundle bundle = new Bundle();
+        //Add your data to bundle
+        bundle.putDouble("longitude", longitude);
+        bundle.putDouble("latitude", latitude);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
